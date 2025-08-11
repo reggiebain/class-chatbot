@@ -1,15 +1,21 @@
 # app/utils.py
 from langchain.embeddings import SentenceTransformerEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.docstore.document import Document
-from config import VECTORSTORE_DIR, LLM_MODEL
 
+from config import VECTORSTORE_DIR, LLM_MODEL
+from config import OPENAI_API_KEY
 
 def load_vectorstore(path: str = VECTORSTORE_DIR):
-    vs = FAISS.load_local(path)
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-small",  # must match ingestion
+        api_key=OPENAI_API_KEY
+    )
+    vs = FAISS.load_local(path, embeddings)
     return vs
 
 

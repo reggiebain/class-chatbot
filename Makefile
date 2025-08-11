@@ -30,8 +30,8 @@ install:
 	@echo "🔧 Installing/updating dependencies..."
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
-	#pip install unstructured[all-docs] unstructured_pytesseract && \
-	#brew install --quiet poppler tesseract
+	$(PIP) install unstructured[all-docs] unstructured_pytesseract && \
+	brew install --quiet poppler tesseract
 	@echo "✅ Activate with: source $(VENV_DIR)/bin/activate"
 
 reinstall:
@@ -44,19 +44,20 @@ reinstall:
 
 ingest:
 	@echo "📄 Ingesting raw documents from $(DATA_DIR)..."
+	PYTHONPATH=. .venv/bin/python scripts/embed_docs.py
 	$(PYTHON) scripts/ingest_docs.py
 
 embed:
 	@echo "🔢 Creating embeddings..."
-	$(PYTHON) scripts/embed_docs.py
-
+	#$(PYTHON) scripts/embed_docs.py
+	$(PYTHON) -m scripts.embed_docs
 build:
 	@echo "📦 Building vectorstore..."
-	$(PYTHON) scripts/build_vectorstore.py
-
+	#$(PYTHON) scripts/build_vectorstore.py
+	$(PYTHON) -m scripts.build_vectorstore
 chat:
 	@echo "💬 Starting CLI chatbot..."
-	$(PYTHON) app/chat_cli.py
+	$(PYTHON) -m app.chat_cli
 
 server:
 	@echo "🚀 Starting FastAPI server..."

@@ -1,6 +1,6 @@
 # scripts/build_vectorstore.py
-from langchain.vectorstores import FAISS
-from langchain.embeddings import SentenceTransformerEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain.schema import Document
 from pathlib import Path
 import json

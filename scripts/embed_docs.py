@@ -2,7 +2,9 @@
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import json
+import sys
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import EMBEDDING_MODEL, VECTORSTORE_DIR
 
 EMBED_MODEL = SentenceTransformer(EMBEDDING_MODEL)

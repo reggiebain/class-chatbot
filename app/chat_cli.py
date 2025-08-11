@@ -1,6 +1,6 @@
 # app/chat_cli.py
 import click
-from langsmith.langsmith_utils import create_run_record, log_example
+from ls_utils.langsmith_utils import create_run_record, log_example
 from app.utils import load_vectorstore, build_qa_chain
 from config import LLM_MODEL
 
