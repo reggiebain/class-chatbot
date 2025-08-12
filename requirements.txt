@@ -18,3 +18,4 @@ unstructured_inference
 pdf2image
 pytesseract
 unstructured_pytesseract
+langchain-openai

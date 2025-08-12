@@ -3,6 +3,7 @@ from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import json
 import sys
+import numpy as np
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import EMBEDDING_MODEL, VECTORSTORE_DIR
@@ -22,7 +23,5 @@ for file in RAW_DIR.glob("*.json"):
     meta.append({"source": str(file)})
 
 # save as a simple numpy/pickle or integrate with FAISS in build_vectorstore.py
-import numpy as np
 np.save(OUT_DIR / "embeddings.npy", np.array(embeddings))
-import json
 (OUT_DIR / "meta.json").write_text(json.dumps(meta))

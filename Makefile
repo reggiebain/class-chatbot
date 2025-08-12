@@ -44,9 +44,8 @@ reinstall:
 
 ingest:
 	@echo "📄 Ingesting raw documents from $(DATA_DIR)..."
-	PYTHONPATH=. .venv/bin/python scripts/embed_docs.py
-	$(PYTHON) scripts/ingest_docs.py
-
+	#$(PYTHON) scripts/ingest_docs.py
+	$(PYTHON) -m scripts.ingest_docs
 embed:
 	@echo "🔢 Creating embeddings..."
 	#$(PYTHON) scripts/embed_docs.py
