@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.utils import load_vectorstore, build_qa_chain
 from app.moderation import ModerationService
-from ls_utils.langsmith_utils import init_langsmith
+from ls_utils.langsmith_utils import init_langsmith, load_prompt_from_langsmith
 from langsmith import traceable
 
 init_langsmith()
@@ -15,6 +15,8 @@ vs = load_vectorstore()
 class Query(BaseModel):
     question: str
     k: int=4
+    role: str | None = None
+    custom_prompt_name: str | None = None
 
 # ---------------------------
 # Helpers

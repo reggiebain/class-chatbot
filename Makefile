@@ -66,6 +66,10 @@ frontend:
 	@echo "🖥️ Starting Streamlit app..."
 	streamlit run streamlit_app/streamlit_app.py --server.port 8501
 
+eval:
+	@echo "📊 Running RAG evaluation..."
+	$(PYTHON) eval/run_eval.py
+
 clean:
 	@echo "🧹 Cleaning processed data and vectorstore..."
 	rm -rf $(PROCESSED_DIR) $(VECTORSTORE_DIR)
