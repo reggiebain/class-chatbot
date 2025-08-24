@@ -62,6 +62,10 @@ server:
 	@echo "🚀 Starting FastAPI server..."
 	$(PYTHON) -m uvicorn app.chat_server:app --reload
 
+frontend:
+	@echo "🖥️ Starting Streamlit app..."
+	streamlit run streamlit_app/streamlit_app.py --server.port 8501
+
 clean:
 	@echo "🧹 Cleaning processed data and vectorstore..."
 	rm -rf $(PROCESSED_DIR) $(VECTORSTORE_DIR)

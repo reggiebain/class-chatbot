@@ -16,6 +16,9 @@ class Query(BaseModel):
     question: str
     k: int=4
 
+# ---------------------------
+# Helpers
+# ---------------------------
 def extract_text_from_chain_output(output):
     if isinstance(output, str):
         return output
@@ -27,6 +30,9 @@ def extract_text_from_chain_output(output):
         return str(next(iter(output.values())))
     return str(output)
 
+# ---------------------------
+# Moderation + RAG
+# ---------------------------
 @traceable(name='moderation_step')
 def run_moderation(question: str):
     normalized, raw = moderator.check(question)
@@ -36,6 +42,11 @@ def run_moderation(question: str):
 def run_rag(vs, k, question):
     chain = build_qa_chain(vectorstore=vs, k=k)
     return chain.invoke(question)
+
+
+# ---------------------------
+# Evaluation utilities
+# ---------------------------
 
 def ask_moderated_question(vs, k, question):
     # Do moderation
