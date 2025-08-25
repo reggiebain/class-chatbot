@@ -109,4 +109,3 @@ Bot: The grading breakdown is 40% exams, 30% projects, 20% homework, and 10% par
 ## 🔮 Future Improvements
 - Dockerize frontend + backend
 - Deploy to cloud (e.g., Render, Fly.io, AWS)
-- Add LangSmith eval traces in the frontend
