@@ -7,6 +7,10 @@ It consists of:
 - A **Streamlit frontend** (`streamlit_app/`) that provides a simple chat UI.
 - A `Makefile` with convenient commands to run the system.
 
+#### Screenshots
+- [See a sample conversation here.](./img/queries_sample.png)
+- [Table of LangSmith Evaluation Traces using LLM-as-judge](./img/syllabus_eval_table.png)
+- [A detailed LangSmith trace of a query](./img/langsmith_successful_query.png)
 ---
 
 ## 🚀 Getting Started
