@@ -1,19 +1,21 @@
-# 📘 Syllabus RAG Chatbot
+# Syllabus RAG Chatbot
 
 This project is a **Retrieval-Augmented Generation (RAG) chatbot** for answering questions about a syllabus.  
 
 It consists of:
 - A **FastAPI backend** (`app/`) that runs the RAG pipeline (vectorstore + LLM + moderation).
 - A **Streamlit frontend** (`streamlit_app/`) that provides a simple chat UI.
+- Implementation of **LangSmith** tracing and evaluation (`eval/`) with dashboard monitoring of live queries via streamlit app.
 - A `Makefile` with convenient commands to run the system.
 
 #### Screenshots
 - [See a sample conversation here.](./img/queries_sample.png)
 - [Table of LangSmith Evaluation Traces using LLM-as-judge](./img/syllabus_eval_table.png)
 - [A detailed LangSmith trace of a query](./img/langsmith_successful_query.png)
+- [A query that gets flagged by moderator](./img/safety_example.png)
 ---
 
-## 🚀 Getting Startedg
+## Getting Startedg
 
 ### 1. Clone the repo
 ```bash
@@ -42,7 +44,7 @@ Notable dependencies include:
 
 ---
 
-## 🖥️ Running the App
+## Running the App
 
 We use a `Makefile` to simplify commands.
 
@@ -64,7 +66,7 @@ make dev
 ```
 ---
 
-## ✨ Example Usage
+## Example Usage
 
 Ask your syllabus bot things like:
 - “When are assignments due?”
@@ -78,6 +80,6 @@ Bot: The grading breakdown is 40% exams, 30% projects, 20% homework, and 10% par
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 - Dockerize frontend + backend
 - Deploy to cloud (e.g., Render, Fly.io, AWS)
