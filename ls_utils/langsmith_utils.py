@@ -10,7 +10,7 @@ def get_langsmith_client():
     global _client
     if _client is None:
         _client = Client(api_key=LANGSMITH_API_KEY)
-        return _client
+    return _client
 
 def init_langsmith():
     os.environ["LANGSMITH_API_KEY"] = LANGSMITH_API_KEY

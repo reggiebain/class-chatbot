@@ -21,6 +21,7 @@ def build_dataset():
         print(f"Question: {example.inputs['question']}")
         print(f"Answer: {example.outputs['answer']}")
         print("---")    
+    return dataset    
     # Create the dataset and examples in LangSmith
     #dataset_name = "physics1_syllabus_eval_dataset"
     #dataset = client.create_dataset(dataset_name=dataset_name)

@@ -13,7 +13,7 @@ VENV_DIR := .venv-rag-langsmith
 PYTHON := $(VENV_DIR)/bin/python
 PIP := $(VENV_DIR)/bin/pip
 
-.PHONY: all install reinstall ingest embed build chat server clean
+.PHONY: all install reinstall ingest embed build chat server eval clean
 
 # ========== Main Targets ==========
 
@@ -68,7 +68,7 @@ frontend:
 
 eval:
 	@echo "📊 Running RAG evaluation..."
-	$(PYTHON) eval/run_eval.py
+	$(PYTHON) -m eval.run_eval
 
 clean:
 	@echo "🧹 Cleaning processed data and vectorstore..."
