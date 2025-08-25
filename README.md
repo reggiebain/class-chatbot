@@ -13,7 +13,7 @@ It consists of:
 - [A detailed LangSmith trace of a query](./img/langsmith_successful_query.png)
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Startedg
 
 ### 1. Clone the repo
 ```bash
@@ -62,38 +62,6 @@ Starts the UI at: [http://localhost:8501](http://localhost:8501)
 ```bash
 make dev
 ```
-Runs the backend in the background and starts the frontend in the foreground.
-
----
-
-## 📂 Project Structure
-```
-your_project/
-├── app/                     # Backend (FastAPI)
-│   ├── chat_server.py       # RAG + moderation API
-│   ├── utils.py             # Vectorstore + chain helpers
-│   ├── moderation.py        # Moderation service
-│   └── ...
-├── streamlit_app/           # Frontend (Streamlit)
-│   └── streamlit_app.py     # Chat UI
-├── requirements.txt         # Python dependencies
-├── Makefile                 # Run commands
-└── README.md                # Project docs
-```
-
----
-
-## ⚠️ Notes
-
-- The `dev` command runs the FastAPI server in the background.  
-  If you stop Streamlit with `Ctrl+C`, the backend may still be running.  
-  To kill it:
-  ```bash
-  lsof -i:8000   # Find process ID
-  kill <PID>     # Stop it
-  ```
-- Adjust `API_URL` in `streamlit_app/streamlit_app.py` if deploying somewhere other than `localhost:8000`.
-
 ---
 
 ## ✨ Example Usage
